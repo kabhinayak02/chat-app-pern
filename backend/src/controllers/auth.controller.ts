@@ -3,6 +3,7 @@ import prisma from "../db/prisma.js";
 import bcryptjs from "bcryptjs";
 import generateToken from "../utils/generateToken.js";
 
+// Signup Controller 
 export const signup = async (req: Request, res: Response) => {
     try {
         const {fullname, username, password, confirmPassword, gender} = req.body;
@@ -56,6 +57,7 @@ export const signup = async (req: Request, res: Response) => {
     }
 }
 
+// Login Controller
 export const login = async (req: Request, res: Response) => {
     try {
         const {username, password} = req.body;
@@ -85,6 +87,8 @@ export const login = async (req: Request, res: Response) => {
         res.status(500).json({error: "Internal server error"});
     }
 }
+
+// Logout Controller
 export const logout = async (req: Request, res: Response) => {
     try {
         res.cookie("jwt", "", {maxAge: 0});
@@ -96,6 +100,7 @@ export const logout = async (req: Request, res: Response) => {
     }
 }
 
+// Get my info Controller
 export const getMe = async (req: Request, res: Response) => {
     try {
         const user = await prisma.user.findUnique({where: {id: req.user.id}})
