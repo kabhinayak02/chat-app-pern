@@ -68,3 +68,6 @@ This repository contains a fully functional web chat application written in Type
 4. **See Online Users**: Check who is online and available to chat.
 5. **Chat**: Start chatting with other users.
 6. **Logout**: Securely log out of your account when done.
+
+## API Documentation
+See here: [Documentation](/backend/API-documentation.md)
