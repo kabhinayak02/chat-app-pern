@@ -80,13 +80,7 @@ http://localhost:8000/api
 - **URL**: `/auth/logout`
 - **Method**: `POST`
 - **Description**: Log out to an existing user account.
-- **Request Body**:
-    ```json
-    {
-        "email": "string",
-        "password": "string"
-    }
-    ```
+
 - **Success Response**:
     - **Code**: `200 OK`
     - **Content**:
@@ -102,9 +96,9 @@ http://localhost:8000/api
         {
             "error": "Invalid Token"
         }
+        ```
 
-
-#### Get Current User
+#### Get Current User 
 
 - **URL**: `/auth/me`
 - **Method**: `GET`
@@ -143,7 +137,7 @@ http://localhost:8000/api
         "message": "Hiii!"
     }
     ```
-    
+
 - **Success Response**:
     - **Code**: `200 OK`
     - **Content**:
