@@ -121,3 +121,64 @@ export const getMe = async (req: Request, res: Response) => {
         res.status(500).json({error: "Internal Server Error"})
     }
 }
+
+// Update My Profile data
+export const updateProfile = async(req: Request, res: Response) => { 
+    try {
+        const user = await prisma.user.findUnique({where: {id: req.user.id}});
+
+        if(!user){
+            return res.status(404).json({error: "User not found"})
+        }
+
+        const { fullname, username } = req.body;
+
+        const checkUsername = await prisma.user.findUnique({where: {username}});
+
+        if(checkUsername){
+            return res.status(400).json({error: "Username already exists"})
+        }
+
+        // Updating user data
+        const updatedUser = await prisma.user.update({
+            where: { id: req.user.id },
+            data: {
+                fullname: fullname || user.fullname,
+                username: username || user.username,
+            }
+        });
+
+        res.status(200).json({
+            id: updatedUser.id,
+            fullname: updatedUser.fullname,
+            username: updatedUser.username,
+        });
+    } catch (error: any) {
+        console.log("Error in updateProfile controller", error.message);
+        res.status(500).json({error: "Internal Server Error"});
+    }
+}
+
+// Delete My Profile
+export const deleteProfile = async (req: Request, res: Response) => { 
+    try {
+        // Find the user by their ID
+        const user = await prisma.user.findUnique({where: {id: req.user.id}});
+
+        if (!user) {
+            return res.status(404).json({error: "User not found"});
+        }
+
+        // Delete the user from the database
+        await prisma.user.delete({
+            where: { id: req.user.id }
+        });
+
+        // Respond with success message
+        res.status(200).json({message: "User profile deleted successfully"});
+
+    } catch (error: any) {
+        console.log("Error in deleteProfile controller", error.message);
+        res.status(500).json({error: "Internal Server Error"});
+    }
+}
