@@ -67,7 +67,26 @@ This repository contains a fully functional web chat application written in Type
 3. **Search Users**: Find other users easily using the search functionality.
 4. **See Online Users**: Check who is online and available to chat.
 5. **Chat**: Start chatting with other users.
-6. **Logout**: Securely log out of your account when done.
+6. **Edit Profile**: User can edit username  and fullname.
+7. **Delete Profile**: User can delele profile.
+8. **Logout**: Securely log out of your account when done.
 
 ## API Documentation
+
 See here: [Documentation](/backend/API-documentation.md)
+
+
+
+## Screenshots
+
+![Signup Screenshot](/screenshots/ss1.png)
+
+![Login Screenshot](/screenshots/ss2.png)
+
+![Chat Screenshot](/screenshots/ss3.png)
+
+![Myprofile Screenshot](/screenshots/ss4.png)
+
+![Edit Screenshot](/screenshots/ss5.png)
+
+![Delete Screenshot](/screenshots/ss6.png)
