@@ -3,25 +3,25 @@ import toast from "react-hot-toast";
 
 type AuthUserType = {
     id: string;
+    username: string;
     fullname: string;
-    email: string;
     profilePic: string;
     gender: string;
-
 }
+
 const AuthContext = createContext<{
     authUser: AuthUserType | null;
     setAuthUser: Dispatch<SetStateAction<AuthUserType | null>>;
-    isLoading: boolean
+    isLoading: boolean;
 }>({
     authUser: null,
     setAuthUser: () => {},
     isLoading: true
-})
+});
 
 export const useAuthContext = () => {
     return useContext(AuthContext);
-}
+};
 
 export const AuthContextProvider = ({children}:{children:ReactNode}) => {
     const [authUser, setAuthUser] = useState<AuthUserType | null>(null);
@@ -46,7 +46,7 @@ export const AuthContextProvider = ({children}:{children:ReactNode}) => {
         }
 
         fetchAuthUser();
-    }, [])
+    }, []);
 
     return (
         <AuthContext.Provider
@@ -58,5 +58,5 @@ export const AuthContextProvider = ({children}:{children:ReactNode}) => {
         >
             {children}
         </AuthContext.Provider>
-    )
-}
+    );
+};
