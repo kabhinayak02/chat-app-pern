@@ -133,11 +133,13 @@ export const updateProfile = async(req: Request, res: Response) => {
 
         const { fullname, username } = req.body;
 
-        const checkUsername = await prisma.user.findUnique({where: {username}});
+        if(user.username !== username && username.length > 0){
+            const checkUsername = await prisma.user.findUnique({where: {username}});
 
-        if(checkUsername){
-            return res.status(400).json({error: "Username already exists"})
-        }
+            if(checkUsername){
+                return res.status(400).json({error: "Username already exists"})
+            }
+        }    
 
         // Updating user data
         const updatedUser = await prisma.user.update({
