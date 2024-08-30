@@ -19,7 +19,7 @@ const useLogin = () => {
             })
 
             const data = await res.json();
-            if (!res.ok) throw new Error(data.error)
+            if (!res.ok) throw new Error(data.error);
 
             setAuthUser(data);
 
@@ -30,8 +30,7 @@ const useLogin = () => {
         }
     }
 
-    return { loading, login }
-
+    return { loading, login };
 }
 
-export default useLogin
+export default useLogin;
