@@ -14,6 +14,7 @@ const Message = ({ message }: { message: MessageType }) => {
 
 	const bubbleBg = fromMe ? "bg-blue-500" : "";
 	const shakeClass = message.shouldShake ? "shake" : "";
+	
 	return (
 		<div className={`chat ${chatClass}`}>
 			<div className='hidden md:block chat-image avatar'>
