@@ -7,7 +7,7 @@ This repository contains a fully functional web chat application written in Type
 - **Real-time Chat**: Communicate with other users in real-time using Socket.io.
 - **Online Users**: See who is currently online.
 - **User Search**: Easily find and connect with other users.
-- **Authentication**: Sign-up, login, and logout functionalities to secure user data.
+- **Authentication**: Sign-up, login, and logout functionalities to secure user credentials.
 
 ## Tech Stack
 
@@ -18,13 +18,13 @@ This repository contains a fully functional web chat application written in Type
 - **Socket.io-client**: Enables real-time, bidirectional, and event-based communication.
 
 ### Backend
-- **Express**: A minimal and flexible Node.js web application framework.
-- **Node.js**: A JavaScript runtime built on Chrome's V8 engine.
+- **Express**: Node.js web application framework.
+- **Node.js**: A JavaScript runtime.
 - **Socket.io**: Enables real-time, bidirectional, and event-based communication.
 
 ### Database
-- **PostgreSQL**: A powerful, open-source object-relational database system.
-- **Prisma**: A modern database toolkit to query, migrate, and model your data.
+- **PostgreSQL**: For the database.
+- **Prisma**: For managing database models and handling queries.
 
 ## Installation and Setup
 
@@ -39,14 +39,12 @@ This repository contains a fully functional web chat application written in Type
     npm install
     ```
 
-3. **Set up environment variables**
-
-    Create a `.env` file in the root directory and add your database connection string and any other required environment variables.
+3. **Set up environment variables in `.env`:**
 
     ```env
-    DATABASE_URL=your_postgres_connection_string
-    JWT_SECRET=your_secret
-    NODE_ENV=development
+    DATABASE_URL=
+    JWT_SECRET=
+    NODE_ENV=
     PORT=8000
     ```
 
@@ -57,7 +55,7 @@ This repository contains a fully functional web chat application written in Type
 
 5. **Start the application**
     ```bash
-    npm start
+    npm run dev
     ```
 
 ## Usage
