@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast"
 import MyProfile from "./pages/MyProfile"
 
 function App() {
-  const {authUser, setAuthUser, isLoading} = useAuthContext();
+  const {authUser, isLoading} = useAuthContext();
 
   if(isLoading) return null;
   return (
