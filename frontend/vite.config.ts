@@ -8,6 +8,8 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: "https://chat-app-pern-backend.onrender.com",
+        changeOrigin: true,
+        secure: false,
       }
     }
   }
