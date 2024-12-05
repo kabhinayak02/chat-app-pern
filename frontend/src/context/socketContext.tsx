@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext, ReactNode, useRef } from "react";
 import { useAuthContext } from "./AuthContext";
 import io, { Socket } from "socket.io-client";
+const API_URL = import.meta.env.VITE_API_URL;
 
 interface ISocketContext {
 	socket: Socket | null;
@@ -17,7 +18,8 @@ export const useSocketContext = (): ISocketContext => {
 	return context;
 };
 
-const socketURL = import.meta.env.MODE === "development" ? "http://localhost:8000" : "/";
+// const socketURL = import.meta.env.MODE === "development" ? "http://localhost:8000" : "/";
+const socketURL = API_URL;
 
 const SocketContextProvider = ({ children }: { children: ReactNode }) => {
 	const socketRef = useRef<Socket | null>(null);
