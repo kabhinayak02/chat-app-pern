@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+const API_URL = import.meta.env.VITE_API_URL;
 
 type SignupInputsType = {
     fullname: string;
@@ -17,7 +18,7 @@ const useSignup = () => {
     const signup = async (inputs: SignupInputsType) => {
         try {
             setLoading(true);
-            const res = await fetch("/api/auth/signup", {
+            const res = await fetch(`${API_URL}/api/auth/signup`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

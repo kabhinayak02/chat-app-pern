@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const useDeleteMyProfile = () => {
     const [loading, setLoading] = useState(false);
@@ -9,7 +10,7 @@ const useDeleteMyProfile = () => {
     const deleteMyProfile = async() => {
         try {
             setLoading(true);
-            const res = await fetch('api/auth/delete-my-profile', {
+            const res = await fetch(`${API_URL}/api/auth/delete-my-profile`, {
                 method: "delete"
             });
             const data = await res.json();

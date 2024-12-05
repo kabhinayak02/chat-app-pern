@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const useUpdateMyProfile = () => {
     const [loading, setLoading] = useState(false);
@@ -9,7 +10,7 @@ const useUpdateMyProfile = () => {
     const updateMyProfile = async(username: string, fullname: string) => {
         try {
             setLoading(true);
-            const res = await fetch('api/auth/update-my-profile', {
+            const res = await fetch(`${API_URL}api/auth/update-my-profile`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

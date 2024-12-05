@@ -1,7 +1,7 @@
 import { useState } from "react"
 import useConversation from "../zustand/useConversation";
 import toast from "react-hot-toast";
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 const useSendMessage = () => {
     const [loading, setLoading] = useState(false);
@@ -11,7 +11,7 @@ const useSendMessage = () => {
         setLoading(true);
         if (!selectedConversation) return;
         try {
-            const res = await fetch(`/api/message/send/${selectedConversation.id}`, {
+            const res = await fetch(`${API_URL}/api/message/send/${selectedConversation.id}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
