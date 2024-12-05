@@ -10,7 +10,7 @@ const useUpdateMyProfile = () => {
     const updateMyProfile = async(username: string, fullname: string) => {
         try {
             setLoading(true);
-            const res = await fetch(`${API_URL}api/auth/update-my-profile`, {
+            const res = await fetch(`${API_URL}/api/auth/update-my-profile`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
