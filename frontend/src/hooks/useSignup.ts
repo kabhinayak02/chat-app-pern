@@ -20,6 +20,7 @@ const useSignup = () => {
             setLoading(true);
             const res = await fetch(`${API_URL}/api/auth/signup`, {
                 method: "POST",
+                credentials: "include",
                 headers: {
                     "Content-Type": "application/json"
                 },

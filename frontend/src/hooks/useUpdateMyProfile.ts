@@ -12,6 +12,7 @@ const useUpdateMyProfile = () => {
             setLoading(true);
             const res = await fetch(`${API_URL}/api/auth/update-my-profile`, {
                     method: "POST",
+                    credentials: "include",
                     headers: {
                         "Content-Type": "application/json"
                     },

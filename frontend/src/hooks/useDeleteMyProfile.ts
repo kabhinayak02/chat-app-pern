@@ -11,7 +11,8 @@ const useDeleteMyProfile = () => {
         try {
             setLoading(true);
             const res = await fetch(`${API_URL}/api/auth/delete-my-profile`, {
-                method: "delete"
+                method: "delete",
+                credentials: "include"
             });
             const data = await res.json();
 
